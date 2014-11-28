@@ -30,7 +30,6 @@ public class ProductInfoActivity extends Activity {
 
         ((TextView) findViewById(R.id.product_name)).setText(product.getName());
         ((TextView) findViewById(R.id.product_cost_field)).setText(String.valueOf(product.getCost()));
-        ((TextView) findViewById(R.id.product_details_field)).setText(product.getDetails());
     }
 
     public void handelAddToBasketClick(View view) {

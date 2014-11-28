@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -59,5 +60,11 @@ public class ProductsBasketActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void handlePayClick(View view) {
+
+
+
     }
 }

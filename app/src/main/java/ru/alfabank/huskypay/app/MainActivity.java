@@ -41,11 +41,11 @@ public class MainActivity extends Activity {
 
     private void onBarcodeScanned(long barcode) {
         new GetProductInfoTask(){
-
             @Override
-            public void onResult(ProductInfo productInfo) {
+            protected void onPostExecute(ProductInfo productInfo) {
                 onProductInfoReceived(productInfo);
             }
+
         }.getProductInfo(barcode);
     }
 

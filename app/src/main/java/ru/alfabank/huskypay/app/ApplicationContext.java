@@ -15,11 +15,7 @@ public enum ApplicationContext {
         return productsInBasket;
     }
 
-    private List<ProductInfo> productsInBasket = Lists.newArrayList(
-            new ProductInfo(1, "Валенки", "Теплые и удобные", 100),
-            new ProductInfo(2, "Портянки", "Теплые и удобные тоже", 70),
-            new ProductInfo(3, "Варежки", "Теплые и удобные, как валенки", 50)
-    );
+    private List<ProductInfo> productsInBasket = Lists.newArrayList();
 
     public void addToBasket(ProductInfo product){
         productsInBasket.add(product);
