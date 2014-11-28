@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.alfabank.huskypay.app" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -15,9 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.google.zxing.client.android.SCAN" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name="ru.alfabank.huskypay.app.ProductInfoActivity"
+            android:label="@string/title_activity_product_info" >
         </activity>
         <activity
             android:name="ru.alfabank.huskypay.app.ProductsBasketActivity"

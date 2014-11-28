@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D://HuskyPay/HuskyPay.iml" filepath="D://HuskyPay/HuskyPay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HuskyPay.iml" filepath="$PROJECT_DIR$/HuskyPay.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

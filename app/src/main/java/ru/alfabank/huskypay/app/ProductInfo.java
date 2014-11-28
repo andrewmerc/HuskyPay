@@ -1,10 +1,13 @@
 package ru.alfabank.huskypay.app;
 
+import java.io.Serializable;
+
 /**
  * @author bardyshev
  * @since 28.11.2014
  */
-public class ProductInfo {
+public class ProductInfo implements Serializable {
+
     private final long id;
     private final String name;
     private final String details;

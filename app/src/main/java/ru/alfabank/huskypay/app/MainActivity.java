@@ -28,11 +28,33 @@ public class MainActivity extends Activity {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+
         if (requestCode == SCAN_INTENT_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                String contents = intent.getStringExtra(Scan.RESULT);
+
+                long barcode = Long.parseLong(intent.getStringExtra(Scan.RESULT));
+
+                onBarcodeScanned(barcode);
             }
         }
+    }
+
+    private void onBarcodeScanned(long barcode) {
+        new GetProductInfoTask(){
+
+            @Override
+            public void onResult(ProductInfo productInfo) {
+                onProductInfoReceived(productInfo);
+            }
+        }.getProductInfo(barcode);
+    }
+
+    private void onProductInfoReceived(ProductInfo productInfo){
+
+        Intent intent = new Intent(getApplicationContext(), ProductInfoActivity.class);
+        intent.putExtra(ProductInfoActivity.PRODUCT_EXTRAS, productInfo);
+        startActivity(intent);
+
     }
 
 }
