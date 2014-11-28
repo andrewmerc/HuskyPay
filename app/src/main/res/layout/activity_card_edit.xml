@@ -1,37 +1,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="ru.alfabank.huskypay.app.CardEditActivity"
-    android:id="@+id/activity_card_edit">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context="ru.alfabank.huskypay.app.CardEditActivity"
+                android:id="@+id/activity_card_edit">
 
     <TextView
-        android:text="@string/card_edit_intro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:id="@+id/textView2"/>
+            android:text="@string/card_edit_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textProductName"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/card_edit_title"
-            android:id="@+id/textView"
-            android:layout_below="@+id/textView2" android:layout_centerHorizontal="true"
+            android:id="@+id/textProductCost"
+            android:layout_below="@+id/textProductName"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"/>
+
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editCardNumber"
-            android:inputType="number" android:editable="true"
-            android:enabled="true" android:minWidth="220dp" android:minLines="1" android:maxLines="1"
+            android:inputType="number"
+            android:editable="true"
+            android:enabled="true"
+            android:minWidth="220dp"
+            android:minLines="1"
+            android:maxLines="1"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:maxLength="18"
             android:textAlignment="center"
-            android:nextFocusDown="@+id/editValidThru" android:focusable="true"/>
+            android:nextFocusDown="@+id/editValidThru"
+            android:focusable="true"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,45 +50,67 @@
             android:layout_above="@+id/editCardNumber"
             android:layout_alignLeft="@+id/editCardNumber"
             android:layout_alignStart="@+id/editCardNumber"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="VALID THRU:"
-            android:id="@+id/textValidThruLabel" android:layout_below="@+id/editCardNumber"
-            android:layout_alignLeft="@+id/editCardNumber" android:layout_alignStart="@+id/editCardNumber"
+            android:id="@+id/textValidThruLabel"
+            android:layout_below="@+id/editCardNumber"
+            android:layout_alignLeft="@+id/editCardNumber"
+            android:layout_alignStart="@+id/editCardNumber"
             android:layout_marginTop="30dp"/>
+
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="date"
             android:ems="5"
-            android:id="@+id/editValidThru" android:layout_below="@+id/textValidThruLabel"
-            android:layout_alignLeft="@+id/textValidThruLabel" android:layout_alignStart="@+id/textValidThruLabel"
-            android:layout_alignRight="@+id/textCardNumberLabel" android:layout_alignEnd="@+id/textCardNumberLabel"
-            android:maxLength="5" android:editable="true" android:enabled="true" android:focusable="true"
+            android:id="@+id/editValidThru"
+            android:layout_below="@+id/textValidThruLabel"
+            android:layout_alignLeft="@+id/textValidThruLabel"
+            android:layout_alignStart="@+id/textValidThruLabel"
+            android:layout_alignRight="@+id/textCardNumberLabel"
+            android:layout_alignEnd="@+id/textCardNumberLabel"
+            android:maxLength="5"
+            android:editable="true"
+            android:enabled="true"
+            android:focusable="true"
             android:nextFocusRight="@+id/editCVV2"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CVV2:"
-            android:id="@+id/textCVV2Label" android:layout_alignTop="@+id/textValidThruLabel"
-            android:layout_alignRight="@+id/editCardNumber" android:layout_alignEnd="@+id/editCardNumber"
+            android:id="@+id/textCVV2Label"
+            android:layout_alignTop="@+id/textValidThruLabel"
+            android:layout_alignRight="@+id/editCardNumber"
+            android:layout_alignEnd="@+id/editCardNumber"
             />
+
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="4"
             android:id="@+id/editCVV2"
-            android:inputType="number" android:maxLength="3"
-            android:layout_above="@+id/buttonCardAdd" android:layout_alignRight="@+id/editCardNumber"
-            android:layout_alignEnd="@+id/editCardNumber" android:editable="true" android:enabled="true"
+            android:inputType="number"
+            android:maxLength="3"
+            android:layout_above="@+id/buttonCardAdd"
+            android:layout_alignRight="@+id/editCardNumber"
+            android:layout_alignEnd="@+id/editCardNumber"
+            android:editable="true"
+            android:enabled="true"
             android:focusable="true"/>
+
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Привязать"
-            android:id="@+id/buttonCardAdd" android:layout_below="@+id/editValidThru" android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp" android:onClick="onClickCardAddButton"
+            android:id="@+id/buttonCardAdd"
+            android:layout_below="@+id/editValidThru"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:onClick="onClickCardAddButton"
             style="@style/husky_button"/>
 
 </RelativeLayout>

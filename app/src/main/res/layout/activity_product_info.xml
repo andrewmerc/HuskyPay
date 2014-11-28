@@ -9,48 +9,63 @@
                 tools:context="ru.alfabank.huskypay.app.ProductInfoActivity">
 
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/product_name"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/product_cost_label"
-            android:id="@+id/product_cost_label"
-            android:layout_below="@+id/product_name"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/product_details_field"
-            android:layout_below="@+id/product_cost_label"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/product_cost_field"
-            android:layout_alignBottom="@+id/product_cost_label"
-            android:layout_toRightOf="@+id/product_cost_label"
-            android:layout_toEndOf="@+id/product_cost_label"
-            android:layout_marginLeft="36dp"/>
-
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_to_basket_label"
-            android:id="@+id/add_to_basket_button"
+            android:id="@+id/buttonAddToBasket"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:onClick="handelAddToBasketClick"
             style="@style/husky_button"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textProductCost"
+            android:layout_above="@+id/buttonAddToBasket"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textProductName"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/textProductCost"
+            android:layout_below="@+id/textProductName">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:layout_alignTop="@+id/buttonAddToBasket"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+
+            <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tableProductPatams">
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

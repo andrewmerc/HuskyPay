@@ -27,6 +27,17 @@ public class MainActivity extends Activity {
         startActivityForResult(scanIntent, SCAN_INTENT_REQUEST_CODE);
     }
 
+    public void handleTestButtonClick(View view) {
+//        Intent intent = new Intent(this, ProductInfoActivity.class);
+//        startActivity(intent);
+        onBarcodeScanned(4605246007125L);
+    }
+
+    public void handleBasketButtonClick(View view) {
+        Intent intent = new Intent(this, ProductsBasketActivity.class);
+        startActivity(intent);
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         if (requestCode == SCAN_INTENT_REQUEST_CODE) {
@@ -53,6 +64,8 @@ public class MainActivity extends Activity {
 
         Intent intent = new Intent(getApplicationContext(), ProductInfoActivity.class);
         intent.putExtra(ProductInfoActivity.PRODUCT_EXTRAS, productInfo);
+//        intent.putExtra(ProductInfoActivity.VIEW_MODE, "acquire");
+        intent.putExtra(ProductInfoActivity.VIEW_MODE, "view");
         startActivity(intent);
 
     }

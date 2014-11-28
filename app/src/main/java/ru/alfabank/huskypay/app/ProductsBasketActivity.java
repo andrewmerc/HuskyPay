@@ -14,10 +14,14 @@ import java.util.List;
 
 public class ProductsBasketActivity extends Activity {
 
-    /** Items entered by the user is stored in this ArrayList variable */
+    /**
+     * Items entered by the user is stored in this ArrayList variable
+     */
     ArrayList<String> listItems = new ArrayList<String>();
 
-    /** Declaring an ArrayAdapter to set items to ListView */
+    /**
+     * Declaring an ArrayAdapter to set items to ListView
+     */
     ArrayAdapter<String> adapter;
 
     @Override
@@ -25,18 +29,18 @@ public class ProductsBasketActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_basket);
 
+        List<ProductInfo> list = ApplicationContext.INSTANCE.getProductsInBasket();
+        for (ProductInfo aList : list) {
+            listItems.add(String.format("%s, цена: %d руб.", aList.getName(), aList.getCost()));
+        }
+
         /** Defining the ArrayAdapter to set items to ListView */
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
 
         ListView productsList = (ListView) findViewById(R.id.listProducts);
         productsList.setAdapter(adapter);
 
-        List<ProductInfo> list = ApplicationContext.INSTANCE.getProductsInBasket();
-        for (ProductInfo aList : list) {
-            listItems.add(String.format("%s, цена: %d руб.", aList.getName(), aList.getCost()));
-        }
-
-        adapter.notifyDataSetChanged();
+//        adapter.notifyDataSetChanged();
     }
 
 

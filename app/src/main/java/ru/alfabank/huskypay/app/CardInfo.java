@@ -1,8 +1,8 @@
 package ru.alfabank.huskypay.app;
 
 /**
-* Created by atom on 28.11.2014.
-*/
+ * Created by atom on 28.11.2014.
+ */
 public class CardInfo {
 
     private final String number;
