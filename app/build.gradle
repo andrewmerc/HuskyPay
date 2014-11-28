@@ -32,5 +32,6 @@ android {
 }
 
 dependencies {
+    compile "com.google.guava:guava:18.0"
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
