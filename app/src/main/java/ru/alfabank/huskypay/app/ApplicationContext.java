@@ -21,6 +21,10 @@ public enum ApplicationContext {
             new ProductInfo(3, "Варежки", "Теплые и удобные, как валенки", 50)
     );
 
+    public void addToBasket(ProductInfo product){
+        productsInBasket.add(product);
+    }
+
     public CardInfo getCardInfo() {
         return cardInfo;
     }

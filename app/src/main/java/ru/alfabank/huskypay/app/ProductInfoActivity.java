@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class ProductInfoActivity extends Activity {
 
     public static final String PRODUCT_EXTRAS = "product";
+    private ProductInfo product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,9 @@ public class ProductInfoActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        fillProductInfo((ProductInfo) getIntent().getExtras().getSerializable(PRODUCT_EXTRAS));
+        product = (ProductInfo) getIntent().getExtras().getSerializable(PRODUCT_EXTRAS);
+
+        fillProductInfo(product);
     }
 
     private void fillProductInfo(ProductInfo product) {
@@ -32,7 +35,7 @@ public class ProductInfoActivity extends Activity {
 
     public void handelAddToBasketClick(View view) {
 
-
+        ApplicationContext.INSTANCE.addToBasket(product);
 
     }
 }
