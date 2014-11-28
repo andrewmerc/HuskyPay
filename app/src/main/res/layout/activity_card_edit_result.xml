@@ -18,13 +18,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Вернуться на главный экран"
-            android:id="@+id/button" android:layout_below="@+id/textView" android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
-            android:onClick="onClickReturnButton"/>
+            android:id="@+id/button"
+            android:onClick="onClickReturnButton"
+            style="@style/husky_button" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
-            android:src="@drawable/husky" android:layout_above="@+id/textView" android:layout_centerHorizontal="true"
+            android:src="@drawable/success" android:layout_above="@+id/textView" android:layout_centerHorizontal="true"
             android:layout_marginBottom="38dp"/>
 </RelativeLayout>
