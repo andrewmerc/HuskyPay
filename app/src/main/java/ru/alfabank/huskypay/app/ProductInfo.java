@@ -16,4 +16,20 @@ public class ProductInfo {
         this.details = details;
         this.cost = cost;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public int getCost() {
+        return cost;
+    }
 }
