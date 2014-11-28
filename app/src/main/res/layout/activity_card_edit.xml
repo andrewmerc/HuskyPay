@@ -78,6 +78,7 @@
             android:layout_height="wrap_content"
             android:text="Привязать"
             android:id="@+id/buttonCardAdd" android:layout_below="@+id/editValidThru" android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp" android:onClick="onClickCardAddButton"/>
+            android:layout_marginTop="20dp" android:onClick="onClickCardAddButton"
+            android:background="@drawable/button_background" android:paddingLeft="15dp" android:paddingRight="15dp"/>
 
 </RelativeLayout>
