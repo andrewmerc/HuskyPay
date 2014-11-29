@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.widget.ProgressBar;
 import com.google.zxing.integration.android.IntentIntegrator;
 
 import static com.google.zxing.client.android.Intents.Scan;
@@ -13,12 +15,27 @@ public class MainActivity extends Activity {
 
     private static final int SCAN_INTENT_REQUEST_CODE = 0;
     private IntentIntegrator zxingIntegrator;
+    private ProgressBar spinner;
+    private boolean showSpinner = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_main);
         zxingIntegrator = new IntentIntegrator(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        spinner = (ProgressBar) findViewById(R.id.spinner);
+
+        if (showSpinner){
+            spinner.setVisibility(View.VISIBLE);
+        } else {
+            spinner.setVisibility(View.GONE);
+        }
     }
 
     public void handleAddButtonClick(View view) {
@@ -52,16 +69,24 @@ public class MainActivity extends Activity {
     }
 
     private void onBarcodeScanned(long barcode) {
-        new GetProductInfoTask(){
+
+        showSpinner = true;
+
+        new GetProductInfoTask() {
             @Override
             protected void onPostExecute(ProductInfo productInfo) {
+
+                showSpinner = false;
+
+                spinner.setVisibility(View.GONE);
+
                 onProductInfoReceived(productInfo);
             }
 
         }.getProductInfo(barcode);
     }
 
-    private void onProductInfoReceived(ProductInfo productInfo){
+    private void onProductInfoReceived(ProductInfo productInfo) {
 
         Intent intent = new Intent(getApplicationContext(), ProductInfoActivity.class);
         intent.putExtra(ProductInfoActivity.PRODUCT_EXTRAS, productInfo);

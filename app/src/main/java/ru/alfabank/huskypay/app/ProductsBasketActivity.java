@@ -1,6 +1,7 @@
 package ru.alfabank.huskypay.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -68,7 +69,24 @@ public class ProductsBasketActivity extends Activity {
 
     public void handlePayClick(View view) {
 
+        new SendPayTask(ApplicationContext.INSTANCE.getCardInfo(), ApplicationContext.INSTANCE.getProductsInBasket()){
 
+            @Override
+            protected void onPostExecute(PaymentInfo paymentInfo) {
+                onPaymentCompleted(paymentInfo);
+            }
+
+        }.send();
 
     }
+
+    private void onPaymentCompleted(PaymentInfo paymentInfo){
+
+        Intent intent = new Intent(getApplicationContext(), DisplayCheckActivity.class);
+        intent.putExtra(DisplayCheckActivity.PAYMENT_INFO_EXTRAS, paymentInfo);
+
+        startActivity(intent);
+
+    }
+
 }

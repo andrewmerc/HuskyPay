@@ -14,5 +14,6 @@
     <string name="title_activity_product_info">Карточка товара</string>
     <string name="product_cost_label">Цена</string>
     <string name="add_to_basket_label">Добавить в корзину</string>
+    <string name="title_activity_display_check">Чек на вашу покупку</string>
 
 </resources>

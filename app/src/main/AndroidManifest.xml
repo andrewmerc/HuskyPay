@@ -14,21 +14,23 @@
             android:name="ru.alfabank.huskypay.app.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="com.google.zxing.client.android.SCAN"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-                android:name="ru.alfabank.huskypay.app.CardEditActivity"
-                android:label="@string/card_edit_title" >
+            android:name="ru.alfabank.huskypay.app.CardEditActivity"
+            android:label="@string/card_edit_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-                android:name="ru.alfabank.huskypay.app.CardEditResultActivity"
-                android:label="@string/title_activity_card_edit_result" >
+            android:name="ru.alfabank.huskypay.app.CardEditResultActivity"
+            android:label="@string/title_activity_card_edit_result" >
         </activity>
         <activity
             android:name="ru.alfabank.huskypay.app.ProductInfoActivity"
@@ -37,6 +39,10 @@
         <activity
             android:name="ru.alfabank.huskypay.app.ProductsBasketActivity"
             android:label="@string/title_activity_products_basket" >
+        </activity>
+        <activity
+            android:name="ru.alfabank.huskypay.app.DisplayCheckActivity"
+            android:label="@string/title_activity_display_check" >
         </activity>
     </application>
 
