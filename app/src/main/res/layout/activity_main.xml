@@ -108,8 +108,10 @@
     <ProgressBar
             android:id="@+id/spinner"
             style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
     </ProgressBar>
 
     <Button

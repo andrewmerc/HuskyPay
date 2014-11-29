@@ -20,7 +20,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Вернуться на главный экран"
+            android:text="На главный экран"
             android:id="@+id/button"
             android:onClick="onClickReturnButton"
             style="@style/husky_button"
