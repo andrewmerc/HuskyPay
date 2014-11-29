@@ -38,25 +38,27 @@ public class ProductInfo implements Serializable {
 
             cost = productAsJson.getInt("cost");
 
-            JSONObject detailsAsJson = productAsJson.getJSONObject("details");
-
-            details = new HashMap<String, String>();
-
-            Iterator<String> keyIterator = detailsAsJson.keys();
-            while (keyIterator.hasNext()) {
-                String key = keyIterator.next();
-                details.put(key, detailsAsJson.getString(key));
-            }
-
             JSONObject partnerAsJson = productAsJson.getJSONObject("partner");
             partnerName = partnerAsJson.getString("name");
 
-            String imageUrl = productAsJson.getString("imageURL");
+            details = new HashMap<String, String>();
+            if (!productAsJson.isNull("details")){
 
-            if (imageUrl == null) {
+                JSONObject detailsAsJson = productAsJson.getJSONObject("details");
+
+                Iterator<String> keyIterator = detailsAsJson.keys();
+                while (keyIterator.hasNext()) {
+                    String key = keyIterator.next();
+                    details.put(key, detailsAsJson.getString(key));
+                }
+            }
+
+            if (productAsJson.isNull("imageURL")){
                 image = Optional.absent();
                 return;
             }
+
+            String imageUrl = productAsJson.getString("imageURL");
 
             InputStream in = new URL(imageUrl).openStream();
             image = Optional.of(new SerializableBitmap(BitmapFactory.decodeStream(in)));
