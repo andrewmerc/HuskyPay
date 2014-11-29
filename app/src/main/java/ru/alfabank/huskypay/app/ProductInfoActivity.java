@@ -31,8 +31,10 @@ public class ProductInfoActivity extends Activity {
 
         product = (ProductInfo) getIntent().getExtras().getSerializable(PRODUCT_EXTRAS);
 
+        //Toast.makeText(getApplicationContext(), VIEW_MODE, Toast.LENGTH_LONG);
         Button actionButton = (Button) findViewById(R.id.buttonAddToBasket);
-        if (VIEW_MODE.equals("acquire")) {
+        String viewMode = getIntent().getExtras().getString(VIEW_MODE);
+        if (viewMode.equals("acquire")) {
             actionButton.setText("Добавить в корзину");
             actionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -40,7 +42,7 @@ public class ProductInfoActivity extends Activity {
                     handelAddToBasketClick(v);
                 }
             });
-        } else if (VIEW_MODE.equals("view")) {
+        } else if (viewMode.equals("view")) {
             actionButton.setText("Вернуться в корзину");
             actionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -57,12 +59,9 @@ public class ProductInfoActivity extends Activity {
     private void fillProductInfo(ProductInfo product) {
 //      Тут так же нужно будет раскомментить, как только появятся данные:
         ((TextView) findViewById(R.id.textProductName)).setText(product.getName());
-        ((TextView) findViewById(R.id.textProductCost)).setText(String.valueOf(product.getCost()));
-        //     вместо text-detail должен быть 2-мерный массив:
-        //       ((TextView) findViewById(R.id.product_details_field)).setText(product.getDetails());
+        ((TextView) findViewById(R.id.textProductCost)).setText("Цена: " + String.valueOf(product.getCost()) + " руб.");
 
-
-        TableLayout table = (TableLayout) findViewById(R.id.tableProductPatams);
+        TableLayout table = (TableLayout) findViewById(R.id.tableProductParams);
         Map<String, String> details = product.getDetails();
         // а тут разбираем этот самый массив и складываем в table-view:
         for (String detailName : details.keySet()) {
@@ -74,7 +73,7 @@ public class ProductInfoActivity extends Activity {
             TextView value = new TextView(this);
 
             param.setPadding(0, 0, 10, 0);
-            param.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+            param.setGravity(Gravity.RIGHT);
             param.setText(Html.fromHtml("<b>" + detailName + ":</b>"));
             value.setText(detailValue);
 
@@ -83,28 +82,8 @@ public class ProductInfoActivity extends Activity {
             table.addView(row);
         }
 
-        for (int i = 0; i < 5; i++) {
-            TableRow row = new TableRow(this);
-
-            TextView param = new TextView(this);
-            TextView value = new TextView(this);
-
-            param.setPadding(0, 0, 10, 0);
-            param.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
-            param.setText(Html.fromHtml("<b>" + "Параметр" + ":</b>"));
-            value.setText("значение с очень длинным названием");
-
-            row.addView(param);
-            row.addView(value);
-            table.addView(row);
-        }
-
         ImageView img = (ImageView) findViewById(R.id.imageView);
-        img.setMaxHeight(100);
-//        Bitmap imgBitmap;
         img.setImageBitmap(product.getImage());
-//        int resID = getResources().getIdentifier("husky", "drawable", getPackageName());
-//        img.setImageResource(resID);
     }
 
     public void handelAddToBasketClick(View view) {
@@ -114,7 +93,6 @@ public class ProductInfoActivity extends Activity {
     }
 
     public void handelBackToBasketClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), ProductsBasketActivity.class);
-        startActivity(intent);
+        onBackPressed();
     }
 }

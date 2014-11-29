@@ -8,6 +8,103 @@
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context=".MainActivity">
 
+
+    <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:alignmentMode="alignBounds"
+            android:useDefaultMargins="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/gridLayout">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButtonBarCode"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/home_bar_code"
+                style="@style/home_button"
+                android:layout_margin="7dp"
+                android:padding="15dp"
+                android:scaleType="centerCrop"
+                android:onClick="handleAddButtonClick"
+                android:layout_gravity="center_horizontal"/>
+
+            <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButtonBasket"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:src="@drawable/home_basket"
+                    style="@style/home_button"
+                    android:layout_margin="7dp"
+                    android:focusable="false"
+                    android:scaleType="centerCrop"
+                    android:padding="15dp"
+                    android:onClick="handleBasketButtonClick"
+                    android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Добавить продукт"
+                android:id="@+id/textView2"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Корзина продуктов"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButtonCreditCard"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/home_credit_card"
+                style="@style/home_button"
+                android:layout_margin="7dp"
+                android:scaleType="centerCrop"
+                android:padding="15dp"
+                android:layout_gravity="center_horizontal"
+                android:onClick="handleCardAddButtonClick"/>
+
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButtonHistory"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:src="@drawable/home_cabinet"
+                style="@style/husky_button"
+                android:layout_margin="7dp"
+                android:padding="15dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_horizontal"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Привязать карту"
+                android:id="@+id/textView3"
+                android:layout_gravity="center_horizontal"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="История операций"
+                android:id="@+id/textView4"
+                android:layout_gravity="center_horizontal"/>
+    </GridLayout>
+
     <ProgressBar
             android:id="@+id/spinner"
             style="?android:attr/progressBarStyle"
@@ -18,35 +115,11 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:onClick="handleAddButtonClick"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentRight="false"
-            android:text="+"
-            style="@style/husky_button"/>
-
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Добавить продукт"
             android:id="@+id/button"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             android:onClick="handleTestButtonClick"
-            style="@style/husky_button"/>
-
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Перейти в корзину"
-            android:id="@+id/button2"
             style="@style/husky_button"
-            android:layout_below="@+id/button"
-            android:layout_alignRight="@+id/button"
-            android:layout_alignEnd="@+id/button"
-            android:layout_marginTop="39dp"
-            android:onClick="handleBasketButtonClick"/>
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

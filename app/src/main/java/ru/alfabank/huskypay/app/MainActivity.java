@@ -56,6 +56,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void handleCardAddButtonClick(View view) {
+        Intent intent = new Intent(getApplicationContext(), CardEditActivity.class);
+        startActivity(intent);
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         if (requestCode == SCAN_INTENT_REQUEST_CODE) {
@@ -91,7 +96,6 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(getApplicationContext(), ProductInfoActivity.class);
         intent.putExtra(ProductInfoActivity.PRODUCT_EXTRAS, productInfo);
         intent.putExtra(ProductInfoActivity.VIEW_MODE, "acquire");
-//        intent.putExtra(ProductInfoActivity.VIEW_MODE, "view");
         startActivity(intent);
 
     }

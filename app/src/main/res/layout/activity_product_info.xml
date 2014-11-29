@@ -26,7 +26,8 @@
             android:text="Large Text"
             android:id="@+id/textProductCost"
             android:layout_above="@+id/buttonAddToBasket"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -44,27 +45,33 @@
             android:id="@+id/scrollView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_above="@+id/textProductCost"
-            android:layout_below="@+id/textProductName">
+            android:layout_below="@+id/textProductName"
+            android:layout_above="@+id/textProductCost">
 
         <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:gravity="top">
 
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView"
-                    android:layout_alignTop="@+id/buttonAddToBasket"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"/>
+                    android:contentDescription="Product image"
+                    android:minHeight="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="fitStart"/>
 
             <TableLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tableProductPatams">
+                    android:id="@+id/tableProductParams"
+                    android:minHeight="1dp"
+                    >
             </TableLayout>
+
         </LinearLayout>
     </ScrollView>
 

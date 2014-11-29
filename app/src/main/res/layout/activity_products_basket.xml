@@ -17,7 +17,8 @@
             android:layout_alignParentStart="true"
             android:layout_above="@+id/button"
             android:choiceMode="none"
-            android:divider="#fafafa"/>
+            android:divider="#fafafa"
+            />
 
     <Button
             android:layout_width="wrap_content"

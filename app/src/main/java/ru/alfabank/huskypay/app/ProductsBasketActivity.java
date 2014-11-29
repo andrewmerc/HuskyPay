@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -24,14 +25,15 @@ public class ProductsBasketActivity extends Activity {
      * Declaring an ArrayAdapter to set items to ListView
      */
     ArrayAdapter<String> adapter;
+    List<ProductInfo> productList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_basket);
 
-        List<ProductInfo> list = ApplicationContext.INSTANCE.getProductsInBasket();
-        for (ProductInfo aList : list) {
+        productList = ApplicationContext.INSTANCE.getProductsInBasket();
+        for (ProductInfo aList : productList) {
             listItems.add(String.format("%s, цена: %d руб.", aList.getName(), aList.getCost()));
         }
 
@@ -41,9 +43,18 @@ public class ProductsBasketActivity extends Activity {
         ListView productsList = (ListView) findViewById(R.id.listProducts);
         productsList.setAdapter(adapter);
 
+        productsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), ProductInfoActivity.class);
+                intent.putExtra(ProductInfoActivity.PRODUCT_EXTRAS, productList.get((int)id));
+                intent.putExtra(ProductInfoActivity.VIEW_MODE, "view");
+                startActivity(intent);
+            }
+        });
+
 //        adapter.notifyDataSetChanged();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
