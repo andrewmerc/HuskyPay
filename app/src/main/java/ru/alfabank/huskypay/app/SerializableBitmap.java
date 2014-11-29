@@ -12,8 +12,8 @@ import java.io.*;
 
 public class SerializableBitmap implements Serializable {
 
-
     private static final long serialVersionUID = -5228835919664263905L;
+
     private Bitmap bitmap;
 
     public SerializableBitmap(Bitmap b) {
@@ -22,7 +22,7 @@ public class SerializableBitmap implements Serializable {
 
     private void writeObject(ObjectOutputStream out) throws IOException {
         ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-        boolean success = bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteStream);
+        boolean success = bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteStream);
         byte bitmapBytes[] = byteStream.toByteArray();
         if (success) {
             out.write(bitmapBytes, 0, bitmapBytes.length);

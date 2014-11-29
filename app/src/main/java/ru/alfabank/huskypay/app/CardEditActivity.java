@@ -24,7 +24,7 @@ public class CardEditActivity extends Activity {
 
         ApplicationContext.INSTANCE.setCardInfo(cardInfo);
 
-        Intent intent = new Intent(this, CardEditResultActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CardEditResultActivity.class);
         startActivity(intent);
     }
 }

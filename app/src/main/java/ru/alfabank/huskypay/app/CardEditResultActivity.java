@@ -15,7 +15,7 @@ public class CardEditResultActivity extends Activity {
     }
 
     public void onClickReturnButton(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 }

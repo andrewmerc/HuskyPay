@@ -28,9 +28,9 @@ public abstract class GetProductInfoTask extends AsyncTask<String, Void, Product
 
         String resultAsString = ServiceHelper.GET(urls[0]);
 
-        JSONObject productAsJson;
         try {
-            productAsJson = new JSONObject(resultAsString);
+
+            JSONObject productAsJson = new JSONObject(resultAsString);
 
             long id = productAsJson.getLong("id");
             String name = productAsJson.getString("name");

@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
     }
 
     public void handleBasketButtonClick(View view) {
-        Intent intent = new Intent(this, ProductsBasketActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ProductsBasketActivity.class);
         startActivity(intent);
     }
 
