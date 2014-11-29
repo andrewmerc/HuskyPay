@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Husky Pay</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Хаски Pay</string>
+    <string name="action_settings">Настройки</string>
     <string name="title_activity_card_edit">Привязка карты</string>
     <string name="card_edit_intro">Вы можете использовать для платежей пластиковые карты других банков. Для этого
         выполните однократно привязку Вашей карты к приложению и выбирайте ее при совершении операций оплаты услуг и
@@ -15,6 +14,4 @@
     <string name="product_cost_label">Цена</string>
     <string name="add_to_basket_label">Добавить в корзину</string>
     <string name="title_activity_display_check">Чек на вашу покупку</string>
-    <string name="title_activity_payments_history">История операций</string>
-
 </resources>
