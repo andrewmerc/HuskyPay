@@ -9,7 +9,7 @@ import java.util.List;
  */
 public enum ApplicationContext {
     INSTANCE;
-    private CardInfo cardInfo;
+    private CardInfo cardInfo = new CardInfo("5513421243213214", "1017", "3122");
 
     public List<ProductInfo> getProductsInBasket() {
         return productsInBasket;
