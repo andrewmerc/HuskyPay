@@ -6,7 +6,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="ru.alfabank.huskypay.app.PaymentsHistoryActivity">
+    tools:context="ru.alfabank.huskypay.app.PaymentsHistoryActivity"
+    android:onClick="handleReturnButton"
+    android:nestedScrollingEnabled="true">
 
     <ProgressBar
             android:id="@+id/spinner"
@@ -17,4 +19,36 @@
             android:layout_centerVertical="true">
     </ProgressBar>
 
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/button">
+
+        <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listOperations"
+                android:divider="#a2a8a5aa"
+                android:clickable="false"
+                android:dividerHeight="2dp"
+                android:drawSelectorOnTop="true"/>
+    </ScrollView>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="На главную страницу"
+            android:id="@+id/buttonHome"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            style="@style/husky_button"
+            android:layout_marginTop="10dp"
+            android:nestedScrollingEnabled="true"
+            android:onClick="handleReturnButton"/>
 </RelativeLayout>
