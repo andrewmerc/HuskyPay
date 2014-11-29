@@ -61,6 +61,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    public void handleHistoryButtonClick(View view) {
+        Intent intent = new Intent(getApplicationContext(), PaymentsHistoryActivity.class);
+        startActivity(intent);
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         if (requestCode == SCAN_INTENT_REQUEST_CODE) {
@@ -99,5 +104,4 @@ public class MainActivity extends Activity {
         startActivity(intent);
 
     }
-
 }

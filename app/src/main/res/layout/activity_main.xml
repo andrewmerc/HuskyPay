@@ -88,7 +88,8 @@
                 android:layout_margin="7dp"
                 android:padding="15dp"
                 android:scaleType="centerCrop"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:onClick="handleHistoryButtonClick"/>
 
         <TextView
                 android:layout_width="wrap_content"

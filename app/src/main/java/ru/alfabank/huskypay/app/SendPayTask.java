@@ -40,13 +40,7 @@ public class SendPayTask extends AsyncTask<String, Void, PaymentInfo> {
 
         try {
 
-            JSONObject cardInfoAsJson = new JSONObject();
-
-            cardInfoAsJson.put("number", cardInfo.getNumber());
-            cardInfoAsJson.put("cvc", cardInfo.getCvv2());
-            cardInfoAsJson.put("expDate", cardInfo.getValidThru());
-
-            request.put("card", cardInfoAsJson);
+            request.put("card", cardInfo.toJson());
 
             JSONArray productsAsJson = new JSONArray();
 

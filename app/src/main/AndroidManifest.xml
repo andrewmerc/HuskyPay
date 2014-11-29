@@ -43,6 +43,10 @@
             android:name="ru.alfabank.huskypay.app.DisplayCheckActivity"
             android:label="@string/title_activity_display_check" >
         </activity>
+        <activity
+            android:name="ru.alfabank.huskypay.app.PaymentsHistoryActivity"
+            android:label="@string/title_activity_payments_history" >
+        </activity>
     </application>
 
 </manifest>

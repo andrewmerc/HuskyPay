@@ -3,12 +3,14 @@ package ru.alfabank.huskypay.app;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.*;
+import com.google.common.base.Optional;
 
 import java.util.Map;
 
@@ -82,8 +84,11 @@ public class ProductInfoActivity extends Activity {
             table.addView(row);
         }
 
-        ImageView img = (ImageView) findViewById(R.id.imageView);
-        img.setImageBitmap(product.getImage());
+        Optional<Bitmap> image = product.getImage();
+        if (image.isPresent()){
+            ImageView img = (ImageView) findViewById(R.id.imageView);
+            img.setImageBitmap(image.get());
+        }
     }
 
     public void handelAddToBasketClick(View view) {

@@ -15,5 +15,6 @@
     <string name="product_cost_label">Цена</string>
     <string name="add_to_basket_label">Добавить в корзину</string>
     <string name="title_activity_display_check">Чек на вашу покупку</string>
+    <string name="title_activity_payments_history">История операций</string>
 
 </resources>

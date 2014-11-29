@@ -1,8 +1,18 @@
 package ru.alfabank.huskypay.app;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.google.common.base.Function;
+import com.google.common.base.Optional;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -14,15 +24,49 @@ public class ProductInfo implements Serializable {
     private final long id;
     private final String name;
     private final int cost;
-    private final SerializableBitmap image;
     private final Map<String, String> details;
+    private final String partnerName;
+    private final Optional<SerializableBitmap> image;
 
-    public ProductInfo(long id, String name, int cost, Bitmap image, Map<String, String> details) {
-        this.id = id;
-        this.name = name;
-        this.cost = cost;
-        this.image = new SerializableBitmap(image);
-        this.details = details;
+    public ProductInfo(JSONObject productAsJson) {
+
+        try {
+
+            id = productAsJson.getLong("id");
+
+            name = productAsJson.getString("name");
+
+            cost = productAsJson.getInt("cost");
+
+            JSONObject detailsAsJson = productAsJson.getJSONObject("details");
+
+            details = new HashMap<String, String>();
+
+            Iterator<String> keyIterator = detailsAsJson.keys();
+            while (keyIterator.hasNext()) {
+                String key = keyIterator.next();
+                details.put(key, detailsAsJson.getString(key));
+            }
+
+            JSONObject partnerAsJson = productAsJson.getJSONObject("partner");
+            partnerName = partnerAsJson.getString("name");
+
+            String imageUrl = productAsJson.getString("imageURL");
+
+            if (imageUrl == null) {
+                image = Optional.absent();
+                return;
+            }
+
+            InputStream in = new URL(imageUrl).openStream();
+            image = Optional.of(new SerializableBitmap(BitmapFactory.decodeStream(in)));
+
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public long getId() {
@@ -37,11 +81,21 @@ public class ProductInfo implements Serializable {
         return cost;
     }
 
-    public Bitmap getImage() {
-        return image.getBitmap();
-    }
-
     public Map<String, String> getDetails() {
         return details;
+    }
+
+    public String getPartnerName() {
+        return partnerName;
+    }
+
+    public Optional<Bitmap> getImage() {
+
+        return image.transform(new Function<SerializableBitmap, Bitmap>() {
+            @Override
+            public Bitmap apply(SerializableBitmap input) {
+                return input.getBitmap();
+            }
+        });
     }
 }
