@@ -30,7 +30,8 @@ public class MainActivity extends Activity {
     public void handleTestButtonClick(View view) {
 //        Intent intent = new Intent(this, ProductInfoActivity.class);
 //        startActivity(intent);
-        onBarcodeScanned(4605246007125L);
+        //onBarcodeScanned(4605246007125L);
+        onBarcodeScanned(4605246004704L);
     }
 
     public void handleBasketButtonClick(View view) {
@@ -64,8 +65,8 @@ public class MainActivity extends Activity {
 
         Intent intent = new Intent(getApplicationContext(), ProductInfoActivity.class);
         intent.putExtra(ProductInfoActivity.PRODUCT_EXTRAS, productInfo);
-//        intent.putExtra(ProductInfoActivity.VIEW_MODE, "acquire");
-        intent.putExtra(ProductInfoActivity.VIEW_MODE, "view");
+        intent.putExtra(ProductInfoActivity.VIEW_MODE, "acquire");
+//        intent.putExtra(ProductInfoActivity.VIEW_MODE, "view");
         startActivity(intent);
 
     }
