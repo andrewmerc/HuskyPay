@@ -42,13 +42,6 @@ public class MainActivity extends Activity {
         startActivityForResult(scanIntent, SCAN_INTENT_REQUEST_CODE);
     }
 
-    public void handleTestButtonClick(View view) {
-//        Intent intent = new Intent(this, ProductInfoActivity.class);
-//        startActivity(intent);
-        //onBarcodeScanned(4605246007125L);
-        onBarcodeScanned(4605246004704L);
-    }
-
     public void handleBasketButtonClick(View view) {
         Intent intent = new Intent(getApplicationContext(), ProductsBasketActivity.class);
         startActivity(intent);

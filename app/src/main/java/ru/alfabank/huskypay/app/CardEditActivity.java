@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import com.google.common.base.Strings;
 
 public class CardEditActivity extends Activity {
 
@@ -19,8 +20,14 @@ public class CardEditActivity extends Activity {
         TextView cardValidThru = (TextView) findViewById(R.id.editValidThru);
         TextView cardCVV2 = (TextView) findViewById(R.id.editCVV2);
 
-        CardInfo cardInfo = new CardInfo(cardNumber.getText().toString(),
+        String number = cardNumber.getText().toString();
+        if (Strings.isNullOrEmpty(number)) {
+            return;
+        }
+
+        CardInfo cardInfo = new CardInfo(number,
                 cardValidThru.getText().toString(), cardCVV2.getText().toString());
+
 
         ApplicationContext.INSTANCE.setCardInfo(cardInfo);
 

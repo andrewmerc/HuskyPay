@@ -21,6 +21,10 @@ public enum ApplicationContext {
         productsInBasket.add(product);
     }
 
+    public void clearBasket(){
+        productsInBasket.clear();
+    }
+
     public CardInfo getCardInfo() {
         return cardInfo;
     }

@@ -3,8 +3,6 @@ package ru.alfabank.huskypay.app;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -56,28 +54,6 @@ public class ProductsBasketActivity extends Activity {
 //        adapter.notifyDataSetChanged();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_products_basket, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     public void handlePayClick(View view) {
 
         new SendPayTask(ApplicationContext.INSTANCE.getCardInfo(), ApplicationContext.INSTANCE.getProductsInBasket()){
@@ -92,6 +68,8 @@ public class ProductsBasketActivity extends Activity {
     }
 
     private void onPaymentCompleted(PaymentInfo paymentInfo){
+
+        ApplicationContext.INSTANCE.clearBasket();
 
         Intent intent = new Intent(getApplicationContext(), DisplayCheckActivity.class);
         intent.putExtra(DisplayCheckActivity.PAYMENT_INFO_EXTRAS, paymentInfo);
