@@ -13,6 +13,7 @@ public class CardEditActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_edit);
+        setTitle(R.string.card_edit_title);
     }
 
     public void onClickCardAddButton(View v) {

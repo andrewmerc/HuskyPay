@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.alfabank.huskypay.app" >
+          package="ru.alfabank.huskypay.app">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
         <activity
-            android:name="ru.alfabank.huskypay.app.MainActivity"
-            android:label="@string/app_name" >
+                android:name="ru.alfabank.huskypay.app.MainActivity"
+                android:label="@string/app_name">
             <intent-filter>
-                <action android:name="com.google.zxing.client.android.SCAN" />
+                <action android:name="com.google.zxing.client.android.SCAN"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="ru.alfabank.huskypay.app.CardEditActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name="ru.alfabank.huskypay.app.CardEditActivity"
-            android:label="@string/card_edit_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                android:name="ru.alfabank.huskypay.app.CardEditResultActivity"
+                android:label="@string/title_activity_card_edit_result">
         </activity>
         <activity
-            android:name="ru.alfabank.huskypay.app.CardEditResultActivity"
-            android:label="@string/title_activity_card_edit_result" >
+                android:name="ru.alfabank.huskypay.app.ProductInfoActivity"
+                android:label="@string/title_activity_product_info">
         </activity>
         <activity
-            android:name="ru.alfabank.huskypay.app.ProductInfoActivity"
-            android:label="@string/title_activity_product_info" >
+                android:name="ru.alfabank.huskypay.app.ProductsBasketActivity"
+                android:label="@string/title_activity_products_basket">
         </activity>
         <activity
-            android:name="ru.alfabank.huskypay.app.ProductsBasketActivity"
-            android:label="@string/title_activity_products_basket" >
+                android:name="ru.alfabank.huskypay.app.DisplayCheckActivity"
+                android:label="@string/title_activity_display_check">
         </activity>
         <activity
-            android:name="ru.alfabank.huskypay.app.DisplayCheckActivity"
-            android:label="@string/title_activity_display_check" >
-        </activity>
-        <activity
-            android:name="ru.alfabank.huskypay.app.PaymentsHistoryActivity"
-            android:label="@string/title_activity_payments_history" >
+                android:name="ru.alfabank.huskypay.app.PaymentsHistoryActivity"
+                android:label="@string/title_activity_payments_history">
         </activity>
     </application>
 
